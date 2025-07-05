@@ -12,7 +12,7 @@ router = APIRouter(
 
 @router.get('/', response_model=List[schemas.ShowBlog])
 def read_all(db: Session = Depends(database.get_db),
-             current_user: schemas.User = Depends(OAuth2.get_current_user)):
+             get_current_user: schemas.User = Depends(OAuth2.get_current_user)):
     return blog.show_all(db)
 
 
